@@ -1,0 +1,23 @@
+{
+  "name": "food_and_recipes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TMThanh7217/food_and_recipes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TMThanh7217/food_and_recipes/issues"
+  },
+  "homepage": "https://github.com/TMThanh7217/food_and_recipes#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sequelize": "^6.3.5"
+  }
+}
