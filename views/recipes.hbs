@@ -27,7 +27,7 @@
 				<div>
 					<ul>
 						{{#each recipes}}
-						{{#if isOdd this.id}}
+						{{#if (isOdd this.id)}}
 						<li>
 							<a href="/"><img src="{{this.smallImagePath}}" alt="Image"></a>
 							<div>
