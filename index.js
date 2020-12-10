@@ -8,11 +8,17 @@ app.use(express.static(__dirname + "/public"));
 
 let exprHbs = require("express-handlebars");
 const { type } = require('os');
+var isOdd = (num) => {
+    return Number(num) % 2 != 0;
+}
 let hbs = exprHbs.create({
     extname : "hbs",
     defaultLayout : 'main',
     layoutsDir : __dirname + '/views/layouts/',
-    partialsDir : __dirname + '/views/partials/'
+    partialsDir : __dirname + '/views/partials/',
+    helpers : {
+        isOdd : isOdd
+    }
 });
 
 app.engine('hbs', hbs.engine);

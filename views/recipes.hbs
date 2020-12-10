@@ -27,6 +27,7 @@
 				<div>
 					<ul>
 						{{#each recipes}}
+						{{#if isOdd this.id}}
 						<li>
 							<a href="/"><img src="{{this.smallImagePath}}" alt="Image"></a>
 							<div>
@@ -34,6 +35,7 @@
 								<p>{{this.summary}}</p>
 							</div>
 						</li>
+						{{else}}
 						<li>
 							<a href="/"><img src="{{this.smallImagePath}}" alt="Image"></a>
 							<div>
@@ -44,6 +46,7 @@
 								</div>
 							</div>
 						</li>
+						{{/if}}
 						{{/each}}
 					</ul>
 				</div>
