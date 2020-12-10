@@ -45,6 +45,22 @@ app.get('/recipes', (req, res)=>{
     })
 });
 
+app.get('/featured', function(req, res){
+    res.locals.title = '18127217';
+    models.Recipe
+    .findAll({
+        raw: true
+    }) 
+    .then(function(data) {
+        var recipe = data;
+        console.log(typeof(data));
+        res.render('recipes', {recipes: recipe, mssv:18127217, name:'Trinh Minh Thanh', mail:'18127217@student.hcmus.edu.vn'});
+    })
+    .catch(function(err) {
+        res.json(err);
+    })
+});
+
 app.get('/sync', function(req, res) {
     models.sequelize.sync().then(function() {
         res.send('Ahoy, Database sync completed');
@@ -52,7 +68,7 @@ app.get('/sync', function(req, res) {
 });
 
 app.get('/ehe', function(req, res){
-    console.log(models.Recipe);
+    //console.log(models.Recipe);
     models.Recipe
         .findAll({})
         .then(function(data) {
