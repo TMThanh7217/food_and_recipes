@@ -18,6 +18,7 @@
   "homepage": "https://github.com/TMThanh7217/food_and_recipes#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0"
   }
 }
