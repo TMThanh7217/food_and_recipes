@@ -98,6 +98,9 @@ app.get('/featured', function(req, res){
             })
             .then(function(data){
                 console.log(data)
+                data = data.sort(function(a, b){
+                    return b.id - a.id;
+                })
                 product_data.direction = data
                 res.render('featured', {product_data, mssv:18127217, name:'Trinh Minh Thanh', mail:'18127217@student.hcmus.edu.vn'});
             })
@@ -135,3 +138,4 @@ app.get('/ehe', function(req, res){
 app.listen(port,() => {
     console.log(`Server is listening at http://localhost:${port}`);
 });
+
