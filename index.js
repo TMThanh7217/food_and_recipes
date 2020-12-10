@@ -68,11 +68,12 @@ app.get('/recipes', (req, res)=>{
 app.get('/featured', function(req, res){
     res.locals.title = '18127217';
     var product_data = {};
+    var check = req.query.id == '' ? 1: Number(req.query.id);
     models.Recipe
     .findAll({
         raw:true,
         where: {
-            id: Number(req.query.id)
+            id: check
         }
     })
     .then(function(data){
