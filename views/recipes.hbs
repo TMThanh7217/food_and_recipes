@@ -29,22 +29,22 @@
 						{{#each recipes}}
 						{{#if (isOdd this.id)}}
 						<li>
-							<a href="/"><img src="{{this.smallImagePath}}" alt="Image"></a>
+							<a href="/featured?id={{this.id}}"><img src="{{this.smallImagePath}}" alt="Image"></a>
 							<div>
-								<h3><a href="/featured">{{this.title}}</a></h3>
+								<h3><a href="/featured?id={{this.id}}">{{this.title}}</a></h3>
 								<p>{{this.summary}}</p>
 							</div>
 						</li>
 						{{else}}
 						<li>
-							<a href="/"><img src="{{this.smallImagePath}}" alt="Image"></a>
+							<a href="/featured?id={{this.id}}"><img src="{{this.smallImagePath}}" alt="Image"></a>
 							<div>
-								<h3><a href="/featured">This is just a place holder</a></h3>
+								<h3><a href="/featured?id={{this.id}}">This is just a place holder</a></h3>
 								<div>
 									<p>{{this.summary}}</p>
 									<ul>
 									{{#each this.ing}}
-									<li>{{this}}</li>
+									<li>{{this.title}}</li>
 									{{/each}}
 									</ul>
 								</div>

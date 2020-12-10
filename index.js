@@ -7,7 +7,6 @@ var models = require('./Database/models');
 app.use(express.static(__dirname + "/public"));
 
 let exprHbs = require("express-handlebars");
-const { type } = require('os');
 var isOdd = (num) => {
     return Number(num) % 2 != 0;
 }
@@ -52,12 +51,13 @@ app.get('/recipes', (req, res)=>{
             })
             .then(function (ing_data) {
                 recipe[i].ing = ing_data;
+                
             })
-            .track(function (err) {
+            .catch(function (err) {
                 res.json(err)
             })
         }
-        //console.log(typeof(data));
+
         res.render('recipes', {recipes: recipe, mssv:18127130, name:'Tran Phuoc Loc', mail:'18127130@student.hcmus.edu.vn'});
     })
     .catch(function(err) {
@@ -67,44 +67,50 @@ app.get('/recipes', (req, res)=>{
 
 app.get('/featured', function(req, res){
     res.locals.title = '18127217';
-    var recipe_data;
-    var ingredient_data;
-    var direction_data;
+    var product_data = {};
     models.Recipe
     .findAll({
-        raw: true
-    }) 
-    .then(function(data) {
-        recipe_data = data;
-        //console.log(typeof(data));
+        raw:true,
+        where: {
+            id: Number(req.query.id)
+        }
     })
-    .catch(function(err) {
-        res.json(err);
+    .then(function(data){
+        //console.log(data[0])
+        product_data.recipe = data[0]
+        console.log(product_data)
+        models.Ingredient
+        .findAll({
+            raw:true,
+            where: {
+                RecipeId: product_data.recipe.id
+            }
+        })
+        .then(function(data){
+            product_data.ingredient = data
+            models.Direction
+            .findAll({
+                raw:true,
+                where: {
+                    RecipeId: product_data.recipe.id
+                }
+            })
+            .then(function(data){
+                console.log(data)
+                product_data.direction = data
+                res.render('featured', {product_data, mssv:18127217, name:'Trinh Minh Thanh', mail:'18127217@student.hcmus.edu.vn'});
+            })
+            .catch(function(err){
+                res.json(err)
+            })
+        })
+        .catch(function(err){
+            res.json(err)
+        })
+    })
+    .catch(function(err){
+        res.json(err)
     });
-    models.Ingredient
-    .findAll({
-        raw: true
-    }) 
-    .then(function(data) {
-        ingredient_data = data;
-        console.log(typeof(data));
-    })
-    .catch(function(err) {
-        res.json(err);
-    });
-
-    models.Direction
-    .findAll({
-        raw: true
-    }) 
-    .then(function(data) {
-        direction_data = data;
-        //console.log(typeof(data));
-    })
-    .catch(function(err) {
-        res.json(err);
-    })
-    res.render('featured', {products: {recipe_data, ingredient_data, direction_data}, mssv:18127217, name:'Trinh Minh Thanh', mail:'18127217@student.hcmus.edu.vn'});
 });
 
 app.get('/sync', function(req, res) {

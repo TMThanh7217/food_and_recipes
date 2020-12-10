@@ -26,51 +26,22 @@
             <div id="content">
                 <div>
                     <div>
-                        {{#each products.recipe_data}}
                         <h3>This is just a place holder, so you can see what the site would look like.</h3>
                         <p>
                             This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you&#39;re free to use this website template without linking back to us. If you&#39;re having problems editing this website template, then don&#39;t hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forums/">Forums</a>.
                         </p>
-                        <a href="/index"><img src="{{this.bigImagePath}}" alt="Image"></a>
-                        {{/each}}
+                        <a href="/index"><img src="{{product_data.recipe.bigImagePath}}" alt="Image"></a>
                         <h5>INGREDIENTS</h5>
                         <ol class="ingredients">
-                            <li>
-                                10 grms This is just a place holder
-                            </li>
-                            <li>
-                                5 slices This is just a place holder
-                            </li>
-                            <li>
-                                12 pcs. This is just a place holder
-                            </li>
-                            <li>
-                                1 liter This is just a place holder
-                            </li>
-                            <li>
-                                3/4 cup This is just a place holder
-                            </li>
-                            <li>
-                                1/4 cup This is just a place holder
-                            </li>
+                            {{#each product_data.ingredient}}
+                            <li>{{this.quantity}} {{this.title}}</li>
+                            {{/each}}
                         </ol>
                         <h5>DIRECTIONS</h5>
-                        <ol class="directions">
-                            <li>
-                                You can remove any link to our website from this website template.
-                            </li>
-                            <li>
-                                You&#39;re free to use this website template without linking back to us.
-                            </li>
-                            <li>
-                                This is just a place holder, so you can see what the site would look like.
-                            </li>
-                            <li>
-                                You can remove any link to our website from this website template.
-                            </li>
-                            <li>
-                                You&#39;re free to use this website template without linking back to us.
-                            </li>
+                        <ol class="directions" reversed>
+                            {{#each product_data.direction}}
+                            <li>{{this.order}}. {{this.description}}</li>
+                            {{/each}}
                         </ol>
                     </div>
                 </div>
