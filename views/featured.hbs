@@ -1,34 +1,24 @@
-
-<div class="header">
-    <div>
-        <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
-    </div>
-    <form action="index.html" id="form">
-        <input type="text" value="Search from our 10,000+ Recipes around the world" id="search">
-        <input type="submit" value="" id="searchbtn">
-    </form>
-</div>
 <div class="body">
     <div>
         <div class="header">
             <ul>
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="/index">Home</a>
                 </li>
                 <li>
-                    <a href="recipes.html">A to Z Recipes</a>
+                    <a href="/recipes">A to Z Recipes</a>
                 </li>
                 <li class="current">
-                    <a href="featured.html">Featured Recipes</a>
+                    <a href="/featured">Featured Recipes</a>
                 </li>
                 <li>
-                    <a href="videos.html">Videos</a>
+                    <a href="/videos.html">Videos</a>
                 </li>
                 <li>
-                    <a href="about.html">About</a>
+                    <a href="/about.html">About</a>
                 </li>
                 <li>
-                    <a href="blog.html">Blog</a>
+                    <a href="/blog.html">Blog</a>
                 </li>
             </ul>
         </div>
@@ -36,11 +26,13 @@
             <div id="content">
                 <div>
                     <div>
+                        {{#each products.recipe_data}}
                         <h3>This is just a place holder, so you can see what the site would look like.</h3>
                         <p>
                             This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you&#39;re free to use this website template without linking back to us. If you&#39;re having problems editing this website template, then don&#39;t hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forums/">Forums</a>.
                         </p>
-                        <a href="index.html"><img src="images/pork-barbeque.jpg" alt="Image"></a>
+                        <a href="/index"><img src="{{this.bigImagePath}}" alt="Image"></a>
+                        {{/each}}
                         <h5>INGREDIENTS</h5>
                         <ol class="ingredients">
                             <li>
@@ -88,30 +80,30 @@
     <div>
         <div>
             <h3>Cooking Video</h3>
-            <a href="videos.html"><img src="images/cooking-video.png" alt="Image"></a>
+            <a href="/videos.html"><img src="images/cooking-video.png" alt="Image"></a>
             <span>Vegetable &amp; Rice Topping</span>
         </div>
         <div>
             <h3>Featured Recipes</h3>
-            <ul id="featured">
+            <ul id="/featured">
                 <li>
-                    <a href="recipes.html"><img src="images/sandwich.jpg" alt="Image"></a>
+                    <a href="/recipes"><img src="images/sandwich.jpg" alt="Image"></a>
                     <div>
-                        <h2><a href="recipes.html">Ham Sandwich</a></h2>
+                        <h2><a href="/recipes">Ham Sandwich</a></h2>
                         <span>by: Anna</span>
                     </div>
                 </li>
                 <li>
-                    <a href="recipes.html"><img src="images/biscuit-and-coffee.jpg" alt="Image"></a>
+                    <a href="/recipes"><img src="images/biscuit-and-coffee.jpg" alt="Image"></a>
                     <div>
-                        <h2><a href="recipes.html">Biscuit &amp; Sandwich</a></h2>
+                        <h2><a href="/recipes">Biscuit &amp; Sandwich</a></h2>
                         <span>by: Sarah</span>
                     </div>
                 </li>
                 <li>
-                    <a href="recipes.html"><img src="images/pizza.jpg" alt="Image"></a>
+                    <a href="/recipes"><img src="images/pizza.jpg" alt="Image"></a>
                     <div>
-                        <h2><a href="recipes.html">Delicious Pizza</a></h2>
+                        <h2><a href="/recipes">Delicious Pizza</a></h2>
                         <span>by: Rico</span>
                     </div>
                 </li>
