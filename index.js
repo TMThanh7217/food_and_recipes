@@ -42,7 +42,10 @@ app.get('/recipes', (req, res)=>{
     }) 
     .then(function(data) {
         var recipe = data;
-        console.log(typeof(data));
+        //console.log(JSON.stringify(data));
+        for (let i of data)
+            console.log(i);
+        //console.log(typeof(data));
         res.render('recipes', {recipes: recipe, mssv:18127130, name:'Tran Phuoc Loc', mail:'18127130@student.hcmus.edu.vn'});
     })
     .catch(function(err) {
@@ -61,7 +64,7 @@ app.get('/featured', function(req, res){
     }) 
     .then(function(data) {
         recipe_data = data;
-        console.log(typeof(data));
+        //console.log(typeof(data));
     })
     .catch(function(err) {
         res.json(err);
@@ -84,7 +87,7 @@ app.get('/featured', function(req, res){
     }) 
     .then(function(data) {
         direction_data = data;
-        console.log(typeof(data));
+        //console.log(typeof(data));
     })
     .catch(function(err) {
         res.json(err);
