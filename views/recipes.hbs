@@ -42,7 +42,11 @@
 								<h3><a href="/featured">This is just a place holder</a></h3>
 								<div>
 									<p>{{this.summary}}</p>
-									<p>{{this.description}}</p>
+									<ul>
+									{{#each this.ing}}
+									<li>{{this}}</li>
+									{{/each}}
+									</ul>
 								</div>
 							</div>
 						</li>

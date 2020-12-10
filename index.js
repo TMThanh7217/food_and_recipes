@@ -42,9 +42,21 @@ app.get('/recipes', (req, res)=>{
     }) 
     .then(function(data) {
         var recipe = data;
-        //console.log(JSON.stringify(data));
-        for (let i of data)
-            console.log(i);
+        for(let i = 0; i < recipe.length; ++i) {
+            models.Ingredient
+            .findAll({
+                raw : true,
+                where : {
+                    RecipeId : recipe[i].id
+                }
+            })
+            .then(function (ing_data) {
+                recipe[i].ing = ing_data;
+            })
+            .track(function (err) {
+                res.json(err)
+            })
+        }
         //console.log(typeof(data));
         res.render('recipes', {recipes: recipe, mssv:18127130, name:'Tran Phuoc Loc', mail:'18127130@student.hcmus.edu.vn'});
     })
